@@ -3,94 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Iniciar Sesión - Aula Virtual</title>
+    <title>Academia | Catálogo de Cursos</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .glass-effect { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); }
+    </style>
 </head>
-<body class="bg-gray-50 flex items-center justify-center h-screen font-sans antialiased">
+<body class="bg-slate-50 font-sans antialiased text-slate-800">
 
-    <div class="bg-white p-8 rounded-xl shadow-sm border border-gray-200 w-full max-w-md">
-        <div class="text-center mb-8">
-            <div class="w-16 h-16 bg-slate-900 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-3xl">
-                <i class="fa-solid fa-graduation-cap"></i>
+    <!-- Hero Section -->
+    <header class="bg-slate-900 text-white pt-20 pb-24 px-6 text-center relative overflow-hidden">
+        <div class="absolute inset-0 opacity-20 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
+        <div class="relative z-10 max-w-3xl mx-auto">
+            <h1 class="text-4xl md:text-5xl font-extrabold mb-6 tracking-tight">Aula Virtual <br> 593TucaminoalaU - InOutBio.Os</h1>
+            <p class="text-lg text-slate-300 mb-8">Capacitación profesional a tu alcance</p>
+        </div>
+    </header>
+
+    <!-- Catálogo Section -->
+    <main class="max-w-7xl mx-auto px-6 -mt-16 relative z-20 pb-20">
+        
+        <h2 class="text-2xl font-bold text-white mb-6 drop-shadow-md">Nuestros Cursos Profesionales</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+            
+            <!-- Curso 1: Básico -->
+            <div class="bg-white rounded-2xl shadow-xl overflow-hidden hover:-translate-y-2 transition duration-300 border border-slate-100">
+                <div class="h-40 bg-gradient-to-r from-emerald-500 to-teal-400 flex items-center justify-center text-white text-5xl">
+                    <i class="fa-solid fa-flask"></i>
+                </div>
+                <div class="p-6">
+                    <span class="text-xs font-bold text-emerald-600 bg-emerald-100 px-3 py-1 rounded-full">Nivel Básico</span>
+                    <h3 class="text-xl font-bold mt-4 mb-2">Elaboración de Probióticos</h3>
+                    <p class="text-slate-500 text-sm mb-6">Aprende los fundamentos científicos y prácticos para iniciar en el mundo de los probióticos.</p>
+                    <a href="login_basico.html" class="block w-full text-center bg-slate-900 hover:bg-slate-800 text-white font-semibold py-3 rounded-xl transition">Ingresar al Curso</a>
+                </div>
             </div>
-            <h2 class="text-2xl font-bold text-gray-800">Bienvenido</h2>
-            <p class="text-gray-500 text-sm mt-1">Ingresa tus credenciales para continuar</p>
+
+            <!-- Curso 2: Avanzado -->
+            <div class="bg-white rounded-2xl shadow-xl overflow-hidden hover:-translate-y-2 transition duration-300 border border-slate-100">
+                <div class="h-40 bg-gradient-to-r from-blue-600 to-indigo-500 flex items-center justify-center text-white text-5xl">
+                    <i class="fa-solid fa-microscope"></i>
+                </div>
+                <div class="p-6">
+                    <span class="text-xs font-bold text-blue-600 bg-blue-100 px-3 py-1 rounded-full">Nivel Avanzado</span>
+                    <h3 class="text-xl font-bold mt-4 mb-2">Probióticos Avanzado</h3>
+                    <p class="text-slate-500 text-sm mb-6">Técnicas industriales, escalado y control de calidad para producción profesional.</p>
+                    <a href="login_avanzado.html" class="block w-full text-center bg-slate-900 hover:bg-slate-800 text-white font-semibold py-3 rounded-xl transition">Ingresar al Curso</a>
+                </div>
+            </div>
+
+            <!-- Curso 3: Extractos -->
+            <div class="bg-white rounded-2xl shadow-xl overflow-hidden hover:-translate-y-2 transition duration-300 border border-slate-100">
+                <div class="h-40 bg-gradient-to-r from-amber-500 to-orange-400 flex items-center justify-center text-white text-5xl">
+                    <i class="fa-solid fa-leaf"></i>
+                </div>
+                <div class="p-6">
+                    <span class="text-xs font-bold text-amber-600 bg-amber-100 px-3 py-1 rounded-full">Especialidad</span>
+                    <h3 class="text-xl font-bold mt-4 mb-2">Extractos Botánicos</h3>
+                    <p class="text-slate-500 text-sm mb-6">Domina la extracción de principios activos de plantas para uso cosmético y terapéutico.</p>
+                    <a href="login_extractos.html" class="block w-full text-center bg-slate-900 hover:bg-slate-800 text-white font-semibold py-3 rounded-xl transition">Ingresar al Curso</a>
+                </div>
+            </div>
         </div>
 
-        <form id="loginForm" class="space-y-5">
-            <div>
-                <label class="block text-sm font-medium text-gray-700 mb-1">Correo Electrónico</label>
-                <input type="email" id="email" required 
-                       class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition"
-                       placeholder="estudiante@correo.com">
+        <h2 class="text-2xl font-bold text-slate-800 mb-6">Simuladores Universitarios</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Simulador UCE -->
+            <div class="flex items-center justify-between bg-white p-6 rounded-2xl shadow-sm border border-slate-200 hover:shadow-md transition">
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 bg-red-100 text-red-600 rounded-full flex items-center justify-center text-xl">
+                        <i class="fa-solid fa-building-columns"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-slate-800">Universidad Central (UCE)</h4>
+                        <p class="text-sm text-slate-500">Simulador de examen de admisión</p>
+                    </div>
+                </div>
+                <a href="TU_ENLACE_AL_SIMULADOR_AQUI" class="text-blue-600 font-semibold hover:underline">Acceder <i class="fa-solid fa-arrow-right ml-1"></i></a>
             </div>
-            <div>
-                <label class="block text-sm font-medium text-gray-700 mb-1">Contraseña</label>
-                <input type="password" id="password" required 
-                       class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition"
-                       placeholder="••••••••">
-            </div>
-            
-            <!-- Mensaje de error oculto por defecto -->
-            <div id="error-message" class="hidden bg-red-50 text-red-600 text-sm p-3 rounded-lg border border-red-100">
-                <i class="fa-solid fa-circle-exclamation mr-1"></i> Credenciales incorrectas.
-            </div>
+            <!-- Puedes copiar este bloque para otras universidades -->
+        </div>
 
-            <button type="submit" id="submitBtn" 
-                    class="w-full bg-slate-900 hover:bg-slate-800 text-white font-bold py-2.5 rounded-lg transition duration-200 shadow-md">
-                Iniciar Sesión
-            </button>
-        </form>
-    </div>
-
-    <!-- Firebase Script -->
-    <script type="module">
-        // Importar Firebase
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
-        import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js";
-
-        // Tu configuración de Firebase
-        const firebaseConfig = {
-            apiKey: "AIzaSyAYCa2kTBQYlqfV7yV_0mQKmZDj7QBCxmA",
-            authDomain: "aulavirtual-c5c0f.firebaseapp.com",
-            projectId: "aulavirtual-c5c0f",
-            storageBucket: "aulavirtual-c5c0f.firebasestorage.app",
-            messagingSenderId: "708093806084",
-            appId: "1:708093806084:web:f7b0f091923b958cda9751"
-        };
-
-        // Inicializar Firebase
-        const app = initializeApp(firebaseConfig);
-        const auth = getAuth(app);
-
-        // Lógica del formulario
-        const loginForm = document.getElementById('loginForm');
-        const errorMsg = document.getElementById('error-message');
-        const submitBtn = document.getElementById('submitBtn');
-
-        loginForm.addEventListener('submit', (e) => {
-            e.preventDefault(); // Evita que la página se recargue
-            
-            const email = document.getElementById('email').value;
-            const password = document.getElementById('password').value;
-            
-            // Estado de carga
-            submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Validando...';
-            submitBtn.disabled = true;
-
-            signInWithEmailAndPassword(auth, email, password)
-                .then((userCredential) => {
-                    // ¡Éxito! Redirigir al aula virtual
-                    window.location.href = "aulavirtual.html";
-                })
-                .catch((error) => {
-                    // Mostrar error
-                    errorMsg.classList.remove('hidden');
-                    submitBtn.innerHTML = 'Iniciar Sesión';
-                    submitBtn.disabled = false;
-                });
-        });
-    </script>
+    </main>
 </body>
 </html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula | Curso Avanzado de Probióticos</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-slate-50 font-sans antialiased flex h-screen overflow-hidden">
+
+    <!-- Panel Izquierdo (Sidebar) -->
+    <aside class="w-72 bg-blue-900 text-white flex-shrink-0 flex flex-col z-20 shadow-xl">
+        <div class="p-6 border-b border-blue-800">
+            <span class="text-xs font-bold text-blue-400 uppercase tracking-wider">Nivel Avanzado</span>
+            <h2 class="text-xl font-bold text-white mt-1">Probióticos Industrial</h2>
+        </div>
+        
+        <!-- Menú de Navegación -->
+        <nav class="flex-1 overflow-y-auto p-4 space-y-2">
+            
+            <div class="text-xs font-semibold text-blue-300 uppercase tracking-wider mb-2 mt-4 px-2">Contenido</div>
+            
+            <a href="#" class="flex items-center gap-3 bg-blue-800 text-white px-4 py-3 rounded-xl transition">
+                <i class="fa-solid fa-person-chalkboard w-5"></i> Clases
+            </a>
+            
+            <a href="#" class="flex items-center gap-3 hover:bg-blue-800 text-blue-100 px-4 py-3 rounded-xl transition">
+                <i class="fa-solid fa-folder-open w-5"></i> Material de Apoyo
+            </a>
+            
+            <a href="#" class="flex items-center gap-3 hover:bg-blue-800 text-blue-100 px-4 py-3 rounded-xl transition">
+                <i class="fa-solid fa-clipboard-question w-5"></i> Evaluaciones
+            </a>
+
+            <div class="text-xs font-semibold text-blue-300 uppercase tracking-wider mb-2 mt-6 px-2">General</div>
+
+            <a href="#" class="flex items-center gap-3 hover:bg-blue-800 text-blue-100 px-4 py-3 rounded-xl transition">
+                <i class="fa-solid fa-certificate w-5"></i> Certificado
+            </a>
+        </nav>
+        
+        <div class="p-4 border-t border-blue-800">
+            <button id="btn-logout" class="w-full flex items-center justify-center gap-2 bg-blue-800 hover:bg-red-600 text-white font-semibold py-3 rounded-xl transition">
+                <i class="fa-solid fa-power-off"></i> Cerrar Sesión
+            </button>
+        </div>
+    </aside>
+
+    <!-- Área Principal (Lienzo en blanco) -->
+    <main class="flex-1 flex flex-col overflow-y-auto bg-slate-50">
+        
+        <!-- Cabecera simple -->
+        <header class="bg-white px-8 py-4 flex items-center justify-between shadow-sm sticky top-0 z-10 border-b border-slate-200">
+            <h1 class="text-xl font-bold text-slate-800">Clases</h1>
+            <div class="flex items-center gap-4">
+                <span class="text-sm font-medium text-slate-600">Estudiante</span>
+                <div class="w-10 h-10 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-bold">
+                    E
+                </div>
+            </div>
+        </header>
+
+        <!-- CONTENEDOR EN BLANCO PARA IR AÑADIENDO COSAS -->
+        <div class="p-8 w-full flex-1">
+            
+            <div class="bg-white border border-slate-200 border-dashed rounded-2xl h-full min-h-[400px] flex flex-col items-center justify-center text-slate-400">
+                <i class="fa-solid fa-plus-circle text-4xl mb-3 text-slate-300"></i>
+                <p>El contenido de Clases / Material de apoyo irá aquí</p>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Script de Protección Firebase -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
+        import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js";
+
+        // CONFIGURACIÓN CURSO AVANZADO (PROYECTO 2)
+        const firebaseConfig = {
+  apiKey: "AIzaSyAkaFYP8Hf3Gd1rJVNXirFsqQ4gABNqfc4",
+  authDomain: "curso-avanzado-probioticos.firebaseapp.com",
+  projectId: "curso-avanzado-probioticos",
+  storageBucket: "curso-avanzado-probioticos.firebasestorage.app",
+  messagingSenderId: "635559659380",
+  appId: "1:635559659380:web:089955b517b9e840bf0e21"
+};
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+
+        // Proteger la ruta: si no está logueado, vuelve al login de ESTE curso
+        onAuthStateChanged(auth, (user) => {
+            if (!user) {
+                window.location.replace("login_avanzado.html"); 
+            }
+        });
+
+        // Lógica de Cerrar Sesión
+        document.getElementById('btn-logout').addEventListener('click', () => {
+            signOut(auth).then(() => {
+                window.location.replace("login_avanzado.html");
+            });
+        });
+    </script>
+</body>
+</html>
